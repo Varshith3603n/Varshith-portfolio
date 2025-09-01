@@ -111,10 +111,13 @@ export function SkillsSection() {
               transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="glass-card hover-float group h-full">
-                <CardContent className="p-6">
+              <Card className="glass-card group h-full relative transform-gpu transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
+                <CardContent className="p-6 relative">
+                  {/* Animated background gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-lg`} />
+                  
                   {/* Category Header */}
-                  <div className="mb-6">
+                  <div className="relative mb-6">
                     <div className={`w-full h-1 bg-gradient-to-r ${category.gradient} rounded-full mb-4 group-hover:shadow-glow-primary transition-all duration-300`} />
                     <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                       {category.title}
@@ -126,17 +129,15 @@ export function SkillsSection() {
                     {category.skills.map((skill, skillIndex) => (
                       <motion.span
                         key={skill}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ 
-                          delay: categoryIndex * 0.1 + skillIndex * 0.05, 
-                          duration: 0.3 
-                        }}
-                        viewport={{ once: true }}
+                        initial={{ opacity: 1, scale: 1 }}
                         whileHover={{ scale: 1.05, y: -2 }}
-                        className="px-3 py-1.5 bg-muted/50 rounded-full text-sm font-medium border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-200 cursor-default"
+                        className="px-3 py-1.5 rounded-full text-sm font-medium cursor-default relative group/skill"
                       >
-                        {skill}
+                        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50 group-hover/skill:opacity-100 transition-opacity duration-300" />
+                        <span className="absolute inset-0 rounded-full border border-primary/20 group-hover/skill:border-primary/40 transition-colors duration-300" />
+                        <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 group-hover/skill:from-primary group-hover/skill:to-primary/80 transition-all duration-300">
+                          {skill}
+                        </span>
                       </motion.span>
                     ))}
                   </div>

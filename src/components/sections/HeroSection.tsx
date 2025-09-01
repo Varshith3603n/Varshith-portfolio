@@ -61,7 +61,7 @@ export function HeroSection() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
           >
-            <span className="text-gradient-neon text-glow">
+            <span className="text-transparent bg-gradient-to-r from-purple-500 via-cyan-400 to-purple-500 bg-clip-text animate-gradient-x drop-shadow-[0_0_5px_rgba(168,85,247,0.5)]">
               Varshith Puppireddy
             </span>
           </motion.h1>

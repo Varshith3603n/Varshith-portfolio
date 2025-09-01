@@ -59,8 +59,30 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Empty space - no logo */}
-          <div></div>
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative group cursor-pointer"
+            onClick={() => scrollToSection('#home')}
+          >
+            <span className="text-xl md:text-2xl font-bold relative">
+              {/* Main text with gradient */}
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent relative z-10">
+                Varshith
+              </span>
+              
+              {/* Glow effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-50 blur-lg group-hover:opacity-75 transition-opacity duration-300" />
+              
+              {/* Hover line effect */}
+              <motion.span 
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-neon group-hover:w-full transition-all duration-300"
+                layoutId="logoUnderline"
+              />
+            </span>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, Calendar } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import developerAvatar from '@/assets/pic.jpg';
+import developerAvatar from '@/assets/pic.png';
 
 const education = [
   {
@@ -60,15 +60,46 @@ export function AboutSection() {
               <div className="absolute inset-0 bg-gradient-holographic rounded-2xl blur-xl opacity-50 animate-pulse-glow" />
               
               {/* Profile Card */}
-              <Card className="glass-card relative overflow-hidden">
+              <Card className="glass-card relative overflow-hidden group">
                 <CardContent className="p-0">
                   <div className="relative">
                     <img
                       src={developerAvatar}
                       alt="Varshith Puppireddy - AI & ML Developer"
-                      className="w-full h-96 object-cover rounded-lg"
+                      className="w-full h-96 object-cover rounded-lg transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
+                    
+                    {/* Animated border effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                      <div className="absolute inset-0 border-2 border-primary/50 rounded-lg">
+                        <motion.div
+                          className="absolute inset-0 border-2 border-primary rounded-lg"
+                          animate={{
+                            scale: [1, 1.05, 1],
+                            opacity: [0.5, 0.8, 0.5],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                          }}
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Name and designation at bottom */}
+                    <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                      <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <h3 className="text-2xl font-bold mb-2">
+                          <span className="bg-gradient-neon text-transparent bg-clip-text">
+                            Varshith Puppireddy
+                          </span>
+                        </h3>
+                        <p className="text-lg font-medium bg-gradient-neon text-transparent bg-clip-text">
+                          AI & ML Developer
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -100,13 +131,40 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <Card className="glass-card hover-float group cursor-pointer">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
+                <Card className="glass-card group cursor-pointer transform-gpu transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/25">
+                  <CardContent className="p-6 relative overflow-hidden">
+                    {/* Background gradient effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Animated border */}
+                    <motion.div
+                      className="absolute inset-0 border border-primary/20 rounded-lg"
+                      animate={{
+                        scale: [1, 1.02, 1],
+                        opacity: [0.2, 0.4, 0.2],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    />
+                    
+                    <div className="flex items-start space-x-4 relative z-10">
                       {/* Icon */}
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-neon flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <edu.icon className="h-6 w-6 text-primary-foreground" />
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                          <motion.div
+                            animate={{
+                              rotate: [0, 360],
+                            }}
+                            transition={{
+                              duration: 20,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
+                          >
+                            <edu.icon className="h-6 w-6 text-primary-foreground" />
+                          </motion.div>
                         </div>
                       </div>
 

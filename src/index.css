@@ -198,6 +198,62 @@
     transform-style: preserve-3d;
   }
 
+  /* Glow Pulse Animation */
+  @keyframes glow-pulse {
+    0%, 100% { 
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 8s ease-in-out infinite;
+  }
+
+  /* Scan Line Animation */
+  @keyframes scanline {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  /* Matrix Rain Animation */
+  @keyframes matrix-rain {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Cyber Pulse Animation */
+  @keyframes cyber-pulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px hsl(var(--primary) / 0.3),
+        0 0 40px hsl(var(--primary) / 0.2),
+        0 0 60px hsl(var(--primary) / 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 0 30px hsl(var(--primary) / 0.4),
+        0 0 60px hsl(var(--primary) / 0.3),
+        0 0 90px hsl(var(--primary) / 0.2);
+    }
+  }
+
+  .animate-cyber-pulse {
+    animation: cyber-pulse 4s ease-in-out infinite;
+  }
+
   /* Animated Borders */
   .animated-border {
     position: relative;
