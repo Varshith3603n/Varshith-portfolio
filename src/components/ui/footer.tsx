@@ -176,7 +176,7 @@ export function Footer() {
         >
           {/* Copyright */}
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <span>© 2024 Varshith Puppireddy</span>
+            <span>© 2025 Varshith Puppireddy</span>
           </div>
 
           {/* Back to Top */}
